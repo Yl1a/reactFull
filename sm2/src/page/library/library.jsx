@@ -1,5 +1,10 @@
 import Card from "../../component/card/card";
 
+const CARDS = [
+  { title: "111", category: "111", price: "11111" },
+  { title: "222", category: "222", price: "22222" },
+  { title: "3333", category: "333", price: "3333" },
+];
 export default function Library() {
   return (
     <main className="main">
@@ -31,10 +36,14 @@ export default function Library() {
                 </div>
               </div>
               <div className="cards">
-                <Card title="111" category="222" price="111" />
-                <Card title="222" category="3333" price="333" />
-                <Card title="4333" category="444" price="444" />
-                <Card title="555" category="555" price="5555" />
+                {CARDS.map((item) => (
+                  <Card
+                    title={item.title}
+                    category={item.category}
+                    price={item.price}
+                    key={item.title}
+                  />
+                ))}
               </div>
             </div>
           </div>
