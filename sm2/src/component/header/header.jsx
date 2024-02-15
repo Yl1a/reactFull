@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const LINKS = [
   { name: "Главная", href: "/" },
   { name: "Библиотека", href: "/library" },
-  { name: "GitHub", href: "https://github.com/Yl1a/react.gitgit " },
+  { name: "GitHub", href: "https://github.com/Yl1a/reactFull.git" },
   { name: "Контакты", href: "/contact" },
 ];
 
