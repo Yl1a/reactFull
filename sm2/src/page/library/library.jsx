@@ -1,3 +1,5 @@
+import Card from "../../component/card/card";
+
 export default function Library() {
   return (
     <main className="main">
@@ -29,45 +31,10 @@ export default function Library() {
                 </div>
               </div>
               <div className="cards">
-                <div className="card">
-                  <div className="img_card"></div>
-                  <div className="info_cards">
-                    <p className="category">зарубежная классика</p>
-                    <h3 className="title">111111</h3>
-                    <p className="text">
-                      <span className="color">Цена:</span> 11110 ₽
-                    </p>
-                    <a href="" className="btn">
-                      подробнее
-                    </a>
-                  </div>
-                </div>
-                <div className="card">
-                  <div className="img_card"></div>
-                  <div className="info_cards">
-                    <p className="category">зарубежная классика</p>
-                    <h3 className="title">111111</h3>
-                    <p className="text">
-                      <span className="color">Цена:</span> 11110 ₽
-                    </p>
-                    <a href="" className="btn">
-                      подробнее
-                    </a>
-                  </div>
-                </div>
-                <div className="card">
-                  <div className="img_card"></div>
-                  <div className="info_cards">
-                    <p className="category">зарубежная классика</p>
-                    <h3 className="title">111111</h3>
-                    <p className="text">
-                      <span className="color">Цена:</span> 11110 ₽
-                    </p>
-                    <a href="" className="btn">
-                      подробнее
-                    </a>
-                  </div>
-                </div>
+                <Card title="111" category="222" price="111" />
+                <Card title="222" category="3333" price="333" />
+                <Card title="4333" category="444" price="444" />
+                <Card title="555" category="555" price="5555" />
               </div>
             </div>
           </div>
