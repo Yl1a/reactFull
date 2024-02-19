@@ -1,6 +1,6 @@
 import Btn from "../btn/btn";
 
-export default function Card({ title, category, price }) {
+export default function Card({ title, category, price, id }) {
   return (
     <div className="card">
       <div className="img_card"></div>
@@ -10,7 +10,7 @@ export default function Card({ title, category, price }) {
         <p className="text">
           <span className="color">Цена:</span> {price} ₽
         </p>
-        <Btn title="Подробнее" />
+        <Btn title="подробнее" id={id} />
       </div>
     </div>
   );
