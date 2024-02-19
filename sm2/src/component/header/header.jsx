@@ -6,7 +6,7 @@ const LINKS = [
   { name: "Главная", href: "/" },
   { name: "Библиотека", href: "/library" },
   { name: "GitHub", href: "https://github.com/Yl1a/reactFull.git" },
-  { name: "Контакты", href: "/contact" },
+  { name: "Пользователи", href: "/users" },
 ];
 
 export default function Header() {
