@@ -64,6 +64,7 @@ export default function Library() {
                       price={item.price}
                       key={id}
                       id={item.id}
+                      ost={item.ost}
                     />
                   );
                 })}
