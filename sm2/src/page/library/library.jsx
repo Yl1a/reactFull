@@ -10,9 +10,34 @@ export default function Library() {
     setQuery(e.target.value);
   }
 
+  const [sorting, setSorting] = useState("");
+
+  function sort(event) {
+    const sortValue = event.target.value;
+    setSorting(sortValue);
+  }
+
   const filterItem = CARDS.filter((item) => {
     return item.title.toLowerCase().includes(query.toLowerCase());
   });
+
+  const sortItem = (sorting, CARDS) => {
+    switch (sorting) {
+      case "asc":
+        return [...CARDS].sort((a, b) => a.price - b.price);
+      case "desc":
+        return [...CARDS].sort((a, b) => b.price - a.price);
+      case "ascOst":
+        return [...CARDS].sort((a, b) => a.ost - b.ost);
+      case "descOst":
+        return [...CARDS].sort((a, b) => b.ost - a.ost);
+      default:
+        return CARDS;
+    }
+  };
+
+  const sortAndFilterProduct = sortItem(sorting, filterItem);
+
   return (
     <main className="main">
       <div className="container">
@@ -20,19 +45,38 @@ export default function Library() {
           <div className="container">
             <div className="main_content">
               <h2 className="title mainTitle">Книги</h2>
-              <div className="search">
-                <div className="form">
-                  <div className={style.search}>
-                    <input
-                      onChange={search}
-                      type="search"
-                      name="search"
-                      className={style.search_item}
-                      placeholder="search"
-                    />
+              <div className="filter">
+                <div className="search">
+                  <div className="form">
+                    <div className={style.search}>
+                      <input
+                        onChange={search}
+                        type="search"
+                        name="search"
+                        className={style.search_item}
+                        placeholder="search"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className={style.filter_content}>
+                  <div className="filter_item">
+                    <h3 className="title">Цена</h3>
+                    <select onChange={sort} className={style.sortItem}>
+                      <option value="asc">По возрастанию</option>
+                      <option value="desc">По убыванию</option>
+                    </select>
+                  </div>
+                  <div className="filter_item">
+                    <h3 className="title">Количество</h3>
+                    <select onChange={sort} className={style.sortItem}>
+                      <option value="ascOst">По возрастанию</option>
+                      <option value="descOst">По убыванию</option>
+                    </select>
                   </div>
                 </div>
               </div>
+
               <div className="category">
                 <div className="category_item">
                   <a href="" className="link">
@@ -56,29 +100,22 @@ export default function Library() {
                 </div>
               </div>
               <div className="cards">
-                {filterItem.map((item, id) => {
-                  return (
-                    <Card
-                      title={item.title}
-                      category={item.category}
-                      price={item.price}
-                      key={id}
-                      id={item.id}
-                      ost={item.ost}
-                    />
-                  );
-                })}
-                {/*
-                
-                {CARDS.map((item, id) => (
-                  <Card
-                    title={item.title}
-                    category={item.category}
-                    price={item.price}
-                    key={id}
-                    id={item.id}
-                  />
-                ))} */}
+                {sortAndFilterProduct.length ? (
+                  sortAndFilterProduct.map((item, id) => {
+                    return (
+                      <Card
+                        title={item.title}
+                        category={item.category}
+                        price={item.price}
+                        key={id}
+                        id={item.id}
+                        ost={item.ost}
+                      />
+                    );
+                  })
+                ) : (
+                  <h2>skdjflsjdf</h2>
+                )}
               </div>
             </div>
           </div>

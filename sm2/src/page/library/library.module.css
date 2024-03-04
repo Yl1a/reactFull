@@ -5,3 +5,14 @@
   margin: 20px 0;
   border-radius: 2px;
 }
+
+.filter_content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.sortItem {
+  padding: 10px 30px;
+  margin: 10px 0;
+}
