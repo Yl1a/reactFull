@@ -1,5 +1,6 @@
 import Card from "../../component/card/card";
 import { CARDS } from "../../component/data/data";
+import { Category } from "../../component/data/data";
 import { useState } from "react";
 
 import style from "./library.module.css";
@@ -11,15 +12,18 @@ export default function Library() {
   }
 
   const [sorting, setSorting] = useState("");
+  const [category, setCategory] = useState(0);
 
   function sort(event) {
     const sortValue = event.target.value;
     setSorting(sortValue);
   }
 
-  const filterItem = CARDS.filter((item) => {
-    return item.title.toLowerCase().includes(query.toLowerCase());
-  });
+  const filterItem = CARDS.filter(
+    (item) =>
+      item.title.toLowerCase().includes(query.toLowerCase()) &&
+      (item.category == category || category == 0)
+  );
 
   const sortItem = (sorting, CARDS) => {
     switch (sorting) {
@@ -79,22 +83,22 @@ export default function Library() {
 
               <div className="category">
                 <div className="category_item">
-                  <a href="" className="link">
+                  <a onClick={() => setCategory(0)} className="link">
                     Все
                   </a>
                 </div>
                 <div className="category_item">
-                  <a href="" className="link">
+                  <a onClick={() => setCategory(111)} className="link">
                     Зарубежная классика
                   </a>
                 </div>
                 <div className="category_item">
-                  <a href="" className="link">
+                  <a onClick={() => setCategory(222)} className="link">
                     Детективы
                   </a>
                 </div>
                 <div className="category_item">
-                  <a href="" className="link">
+                  <a onClick={() => setCategory(333)} className="link">
                     Ужасы
                   </a>
                 </div>
