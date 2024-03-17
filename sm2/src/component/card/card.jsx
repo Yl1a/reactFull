@@ -1,18 +1,18 @@
-import Btn from "../btn/btn";
+import Btn from "../btn/btn";/* 
 import { useState } from "react";
 import Modal from "react-modal";
-import CreatePage from "../../page/add/add";
+import CreatePage from "../../page/add/add"; */
 
-export default function Card({ title, category, price, id, ost }) {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+export default function Card({ title, category, price, id, ost, addCard }) {
+ /*  const [modalIsOpen, setModalIsOpen] = useState(false); */
 
-  function showModal() {
+/*   function showModal() {
     setModalIsOpen(true);
   }
   function closeModal() {
     setModalIsOpen(false);
   }
-
+ */
   return (
     <div className="card">
       <div className="img_card"></div>
@@ -23,18 +23,19 @@ export default function Card({ title, category, price, id, ost }) {
         <p className="text">
           <span className="color">Цена:</span> {price} ₽
         </p>
-        <button className="btn" onClick={ost ? "" : showModal}>
+        <button className="btn" onClick={addCard}>В корзину</button>
+        {/* <button className="btn" onClick={ost ? "" : showModal}>
           {ost ? "в корзину" : "заказать"}
-        </button>
+        </button> */}
 
         <Btn title="Подробнее" id={id} />
-
+{/* 
         <Modal isOpen={modalIsOpen}>
           <button className="btn" onClick={closeModal}>
             закрыть
           </button>
           <CreatePage/>
-        </Modal>
+        </Modal> */}
       </div>
     </div>
   );

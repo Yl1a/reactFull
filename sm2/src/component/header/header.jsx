@@ -7,6 +7,7 @@ const LINKS = [
   { name: "Библиотека", href: "/library" },
   { name: "Пользователи", href: "/users" },
   { name: "Добавить", href: "/add" },
+  { name: "Корзина", href: "/basket" },
 ];
 
 export default function Header() {

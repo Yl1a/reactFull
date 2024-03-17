@@ -30,6 +30,7 @@ body {
   color: #fcf5f6;
   font-size: 16px;
   font-family: "Montserrat Alternates", sans-serif;
+  cursor: pointer;
 }
 
 .btn:hover {

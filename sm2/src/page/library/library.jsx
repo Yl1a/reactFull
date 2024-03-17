@@ -1,11 +1,10 @@
 import Card from "../../component/card/card";
 import { CARDS } from "../../component/data/data";
-import { Category } from "../../component/data/data";
 import { useState } from "react";
 
 import style from "./library.module.css";
 
-export default function Library() {
+export default function Library({ addtoBasket, basket }) {
   const [query, setQuery] = useState("");
   function search(e) {
     setQuery(e.target.value);
@@ -108,12 +107,9 @@ export default function Library() {
                   sortAndFilterProduct.map((item, id) => {
                     return (
                       <Card
-                        title={item.title}
-                        category={item.category}
-                        price={item.price}
                         key={id}
-                        id={item.id}
-                        ost={item.ost}
+                        {...item}
+                        addCard={() => addtoBasket([...basket, item.id,])}
                       />
                     );
                   })
