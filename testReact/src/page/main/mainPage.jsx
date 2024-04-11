@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
+import Card from "../../assets/component/card/card";
 
-export default function Main() {
+export default function Main({ addtoBasket, basket }) {
   const [posts, setshop] = useState([]);
 
   async function fetchShop() {
@@ -72,13 +73,9 @@ export default function Main() {
             {filterItem.length ? (
               filterItem.map((shop,id) => {
                 return (
-                  <div key={id} className="catalog_item">
-                    <h2>{shop.title}</h2>
-                    <p className="text">{shop.body}</p>
-                    <Link to={`${shop.id}`} className="link">
-                      Подробнее
-                    </Link>
-                  </div>
+                  <Card key={id}
+                  {...shop}
+                  addCard={() => addtoBasket([...basket, shop.id])} />
                 );
               })
             ):(

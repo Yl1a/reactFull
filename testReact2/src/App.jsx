@@ -13,13 +13,14 @@ import BasketPage from "./page/basket/BasketPage";
 import { useState } from "react";
 
 function App() {
-  const [basket, setBasket]= useState([])
+  const [basket,setBasket] = useState([])
+
   return (
     <>
       <Header basket={basket}/>
       <Banner />
       <Routes>
-        <Route path="/" element={<Main  addtoBasket={setBasket} basket={basket}/>} />
+        <Route path="/" element={<Main addToBasket={setBasket} basket={basket} />} />
         <Route path="/:id" element={<CardPage />} />
         <Route path="/basket" element={<BasketPage basket={basket} />} />
       </Routes>
